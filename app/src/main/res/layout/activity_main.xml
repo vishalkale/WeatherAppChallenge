@@ -4,35 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="12dp"
-    android:layout_marginEnd="12dp"
-
+    android:layout_marginStart="@dimen/dimens_16dp"
+    android:layout_marginEnd="@dimen/dimens_16dp"
     tools:context=".view.MainActivity">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/et_search_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@drawable/et_rounded_shape_bg"
-        android:layout_marginTop="12dp"
-        android:hint="@string/enter_your_city"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gray"
-        android:maxLines="1"
-        android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/dimens_12dp"
+        android:background="@drawable/et_rounded_shape_bg"
+        android:hint="@string/enter_your_city"
+        android:inputType="text"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:drawableEnd="@drawable/ic_search"
+        android:padding="@dimen/dimens_12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/weather_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/dimens_12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_search_input"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_search_input" />
+
     <ProgressBar
         android:id="@+id/progress_bar_loading"
         android:layout_width="wrap_content"

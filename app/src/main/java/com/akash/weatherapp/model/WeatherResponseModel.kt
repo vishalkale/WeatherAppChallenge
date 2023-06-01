@@ -3,7 +3,9 @@ package com.akash.weatherapp.model
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
-
+/*
+Data model class of weather api response.
+*/
 @Keep
 data class WeatherResponseModel(
     @SerializedName("base")

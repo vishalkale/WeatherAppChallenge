@@ -1,6 +1,7 @@
 package com.akash.weatherapp.di
 
 import android.content.Context
+import com.akash.weatherapp.db.WeatherAppDatabase
 import com.akash.weatherapp.repository.AppRepository
 import com.akash.weatherapp.retrofit.ApiService
 import com.akash.weatherapp.retrofit.NetworkConnectionInterceptor
@@ -13,7 +14,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-
+/*
+Network module class.
+It handles the local db and api class.
+*/
 @Module
 class NetworkModule {
     @Singleton
@@ -44,6 +48,11 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAppRepository(apiService: ApiService) =
-        AppRepository(apiService)
+    fun provideAppRepository(apiService: ApiService,weatherAppDatabase: WeatherAppDatabase) =
+        AppRepository(apiService,weatherAppDatabase)
+
+    @Singleton
+    @Provides
+    fun providesAppDatabase(context: Context) =
+        WeatherAppDatabase(context)
 }
